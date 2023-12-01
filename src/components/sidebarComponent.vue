@@ -24,15 +24,16 @@ import { AppstoreOutlined, AppstoreAddOutlined } from '@ant-design/icons-vue';
 
 export default {
     name: 'sidebarComponent',
-    data() {
-        return {
-            boardsList: ['Platform launch', 'Marketing plan', 'Roadmap']
-        }
-    },
 
     components: {
         AppstoreOutlined,
         AppstoreAddOutlined
+    },
+
+    data() {
+        return {
+            boardsList: ['Platform launch', 'Marketing plan', 'Roadmap']
+        }
     }
 }
 </script>
@@ -66,19 +67,8 @@ export default {
     &__board {
         padding: 2px 0;
         cursor: pointer;
-        background-color: blue;
         position: relative;
         z-index: 1;
-    }
-
-    &__board::after {
-        content: "";
-        top: 0;
-        bottom: 0;
-        left: 0%;
-        position: absolute;
-        width: 100%;
-        background-color: blue;
     }
 }
 </style>

@@ -4,18 +4,42 @@
             <h1 class="navbar__title">Platform Launch</h1>
 
             <div class="flex items-center">
-                <button class="navbar__button"><span class="mr-1">+</span>Add New Task</button>
+                <button class="navbar__button" @click="openModal"><span class="mr-1">+</span>Add New Task</button>
             </div>
         </div>
+
+
+        <addTaskComponent ref="addTaskModal"/>
     </div>
 </template>
 
 <script>
+import addTaskComponent from '@/components/addTaskComponent.vue'
+
 export default {
     name: 'navbarComponent',
+    components: { addTaskComponent },
+
     data() {
         return {
-            text: 'navbar'
+            text: 'navbar',
+            isModalOpen: false
+        }
+    },
+
+    methods: {
+        handleOk() {
+            this.isModalOpen = false
+            alert('ok')
+        },
+
+        handleCancel() {
+            this.isModalOpen = false
+            alert('cancel')
+        },
+
+        openModal() {
+            this.$refs["addTaskModal"].open()
         }
     }
 }
