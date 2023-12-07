@@ -15,10 +15,11 @@
 
 <script>
 import addTaskComponent from '@/components/addTaskComponent.vue'
+import notificationComponent from '@/components/notificationComponent.vue'
 
 export default {
     name: 'navbarComponent',
-    components: { addTaskComponent },
+    components: { addTaskComponent, notificationComponent },
 
     data() {
         return {
@@ -30,12 +31,12 @@ export default {
     methods: {
         handleOk() {
             this.isModalOpen = false
-            alert('ok')
+            // this.ref['notification'].openNotification()
         },
 
         handleCancel() {
             this.isModalOpen = false
-            alert('cancel')
+            // this.ref['notification'].openNotification()
         },
 
         openModal() {

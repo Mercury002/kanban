@@ -70,12 +70,12 @@ export default {
     methods: {
         handleOk() {
             this.isModalOpen = false
-            alert('ok')
+            // alert('ok')
         },
 
         handleCancel() {
             this.isModalOpen = false
-            alert('cancel')
+            // alert('cancel')
         },
 
         open() {

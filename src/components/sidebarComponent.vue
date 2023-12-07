@@ -5,15 +5,21 @@
         <div class="sidebar__boards">
             <span class="sidebar__boards--head">All boards({{ boardsList.length }})</span>
 
-            <div class="flex items-center sidebar__board" v-for="text in boardsList">
-                <AppstoreOutlined style="font-size: 20px; margin: 2px 10px 2px 0px; padding: 10px 0;" />
-                <span class="text-xl">{{ text }}</span>
+            <div class="sidebar__board" v-for="text in boardsList">
+                <div class="sidebar__board-text flex items-center">
+                    <AppstoreOutlined style="font-size: 20px; margin: 2px 10px 2px 0px; padding: 10px 0;" />
+                    <span class="text-xl">{{ text }}</span>
+                </div>
+                <span class="sidebar__board-background"></span>
             </div>
 
 
-            <div class="flex items-center sidebar__board">
-                <AppstoreAddOutlined style="font-size: 20px; margin: 2px 10px 2px 0px; padding: 10px 0;" />
-                <span class="text-xl">Create new board</span>
+            <div class="sidebar__board">
+                <div class="sidebar__board-text flex items-center">
+                    <AppstoreAddOutlined style="font-size: 20px; margin: 2px 10px 2px 0px; padding: 10px 0;" />
+                    <span class="text-xl">Create new board</span>
+                </div>
+                <span class="sidebar__board-background"></span>
             </div>
         </div>
     </div>
@@ -65,10 +71,33 @@ export default {
     }
 
     &__board {
-        padding: 2px 0;
         cursor: pointer;
         position: relative;
-        z-index: 1;
     }
+
+    &__board-text {
+        position: relative;
+        z-index: 2;
+        width: 80%;
+        padding: 7px 0;
+    }
+
+    &__board-background {
+        background-color: #6e7482;
+        width: 95%;
+        height: 85%;
+        position: absolute;
+        z-index: 1;
+        left: -10%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 0 50px 50px 0;
+        opacity: 0;
+        transition: .2s opacity;
+    }
+}
+
+.sidebar__board:hover .sidebar__board-background {
+    opacity: 1;
 }
 </style>
