@@ -65,6 +65,7 @@ export default {
         border-radius: 30px;
         font-weight: 600;
         transition: .2s background-color;
+        letter-spacing: 1px;
     }
 
     &__button:hover {

@@ -13,7 +13,7 @@
 
             <div class="flex items-center sidebar__board">
                 <AppstoreAddOutlined style="font-size: 20px; margin: 2px 10px 2px 0px; padding: 10px 0;" />
-                <span class="text-xl"><span>+</span>Create new board</span>
+                <span class="text-xl">Create new board</span>
             </div>
         </div>
     </div>
