@@ -1,102 +1,15 @@
 <template>
     <div class="taskbar flex">
-        <div class="taskbar__column flex flex-col">
+        <div class="taskbar__column flex flex-col" v-for="tab in tabsData">
             <div class="flex items-center taskbar__column--head mb-3">
-                <span class="block rounded-full bg-white mr-2"></span>
-                <p class="font-bold taskbar__column--header">TODO(4)</p>
+                <span class="block rounded-full mr-2" :style="{ backgroundColor: tab.tabColor }"></span>
+                <p class="font-bold taskbar__column--header">{{tab.tabName + '(' + tab.tasks.length + ')'}}</p>
             </div>
 
             <div class="flex flex-col items-start">
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Build UI for onboarding flow</p>
-                    <p class="taskbar__column--subtask">0 of 3 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Build UI for search</p>
-                    <p class="taskbar__column--subtask">0 of 1 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Build settings UI</p>
-                    <p class="taskbar__column--subtask">0 of 2 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">QA and test all major user journeys</p>
-                    <p class="taskbar__column--subtask">0 of 2 subtasks</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="taskbar__column flex flex-col">
-            <div class="flex items-center taskbar__column--head mb-3">
-                <span class="block rounded-full bg-sky-700 mr-2"></span>
-                <p class="font-bold taskbar__column--header">DOING(6)</p>
-            </div>
-
-            <div class="flex flex-col items-start">
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Design settings and search pages</p>
-                    <p class="taskbar__column--subtask">1 of 3 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Add account management endpoints</p>
-                    <p class="taskbar__column--subtask">2 of 3 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Design onboarding flow</p>
-                    <p class="taskbar__column--subtask">1 of 3 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Add search endpoints</p>
-                    <p class="taskbar__column--subtask">1 of 2 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Add authentication endpoints</p>
-                    <p class="taskbar__column--subtask">1 of 2 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Research pricing points of various competitors and trial different
-                        business models</p>
-                    <p class="taskbar__column--subtask">2 of 3 subtasks</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="taskbar__column flex flex-col">
-            <div class="flex items-center taskbar__column--head mb-3">
-                <span class="block rounded-full bg-yellow-600 mr-2"></span>
-                <p class="font-bold taskbar__column--header">Done(6)</p>
-            </div>
-
-            <div class="flex flex-col items-start">
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Conduct 5 wireframes tests</p>
-                    <p class="taskbar__column--subtask">1 of 1 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Create wireframe prototype</p>
-                    <p class="taskbar__column--subtask">1 of 1 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Review results of usability tests and iterate</p>
-                    <p class="taskbar__column--subtask">3 of 3 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Create paper prototypes and conduct 10 usability tests with potencial
-                        customers</p>
-                    <p class="taskbar__column--subtask">2 of 2 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Market discovery</p>
-                    <p class="taskbar__column--subtask">1 of 1 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Compititor analysis</p>
-                    <p class="taskbar__column--subtask">3 of 3 subtasks</p>
-                </div>
-                <div class="taskbar__column--task">
-                    <p class="taskbar__column--title">Create paper prototypes and conduct 10 usability tests with potencial
-                        customers</p>
-                    <p class="taskbar__column--subtask">2 of 2 subtasks</p>
+                <div class="taskbar__column--task" v-for="item in tab.tasks" @click="openTask(item)">
+                    <p class="taskbar__column--title">{{ item.title }}</p>
+                    <p class="taskbar__column--subtask">{{ item.doneTask + ' of ' + item.allTask + ' subtasks' }}</p>
                 </div>
             </div>
         </div>
@@ -110,8 +23,22 @@
 </template>
 
 <script>
+import data from '../data.json'
+
 export default {
-    name: "taskbarComponent"
+    name: "taskbarComponent",
+    
+    methods: {
+        openTask(data) {
+            console.log(data)
+        }
+    },
+
+    computed: {
+        tabsData() {
+            return data
+        }
+    }
 }
 </script>
 

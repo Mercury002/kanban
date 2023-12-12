@@ -1,0 +1,105 @@
+[
+    {
+        "tasks": [
+            {
+                "title": "Build UI for onboarding flow",
+                "doneTask": 0,
+                "allTask": 3
+            },
+            {
+                "title": "Build UI for search", 
+                "doneTask": 0,
+                "allTask": 1
+            },
+            {
+                "title": "Build settings UI", 
+                "doneTask": 0,
+                "allTask": 2
+            },
+            {
+                "title": "QA and test all major user journeys", 
+                "doneTask": 0,
+                "allTask": 2
+            }
+        ],
+        "tabName": "todo",
+        "tabColor": "#ffffff"
+    },
+    {
+        "tasks": [
+            {
+                "title": "Design settings and search pages", 
+                "doneTask": 1,
+                "allTask": 3
+            },
+            {
+                "title": "Add account management endpoints", 
+                "doneTask": 2,
+                "allTask": 3
+            },
+            {
+                "title": "Design onboarding flow", 
+                "doneTask": 1,
+                "allTask": 3
+            },
+            {
+                "title": "Add search endpoints", 
+                "doneTask": 1,
+                "allTask": 2
+            },
+            {
+                "title": "Add authentication endpoints", 
+                "doneTask": 1,
+                "allTask": 2
+            },
+            {
+                "title": "Research pricing points of various competitors and trial different business models", 
+                "doneTask": 2,
+                "allTask": 3
+            }
+        ],
+        "tabName": "doing",
+        "tabColor": "#0369a1"
+    },
+    {
+        "tasks": [
+            {
+                "title": "Conduct 5 wireframes tests", 
+                "doneTask": 1,
+                "allTask": 1
+            },
+            {
+                "title": "Create wireframe prototype", 
+                "doneTask": 1,
+                "allTask": 1
+            },
+            {
+                "title": "Review results of usability tests and iterate", 
+                "doneTask": 3,
+                "allTask": 3
+            },
+            {
+                "title": "Create paper prototypes and conduct 10 usability tests with potencial customers", 
+                "doneTask": 2,
+                "allTask": 2
+            },
+            {
+                "title": "Market discovery", 
+                "doneTask": 1,
+                "allTask": 1
+            },
+            {
+                "title": "Compititor analysis", 
+                "doneTask": 3,
+                "allTask": 3
+            },
+            {
+                "title": "Create paper prototypes and conduct 10 usability tests with potencial customers", 
+                "doneTask": 2,
+                "allTask": 2
+            }
+        ],
+        "tabName": "done",
+        "tabColor": "#ca8a04"
+    }
+]
