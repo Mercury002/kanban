@@ -168,4 +168,8 @@ export default {
 .modalSelect .ant-select-selection-item-remove {
     display: flex;
 }
+
+.ant-modal-close-icon svg {
+    color: #fff;
+}
 </style>

@@ -8,18 +8,17 @@
             </div>
         </div>
 
-
         <addTaskComponent ref="addTaskModal"/>
     </div>
 </template>
 
 <script>
 import addTaskComponent from '@/components/addTaskComponent.vue'
-import notificationComponent from '@/components/notificationComponent.vue'
+import { notification } from 'ant-design-vue';
 
 export default {
     name: 'navbarComponent',
-    components: { addTaskComponent, notificationComponent },
+    components: { addTaskComponent },
 
     data() {
         return {
@@ -31,12 +30,14 @@ export default {
     methods: {
         handleOk() {
             this.isModalOpen = false
-            // this.ref['notification'].openNotification()
+            return notification.open({
+                message: "GG",
+                description: "GGWP notify  description"
+            })
         },
 
         handleCancel() {
             this.isModalOpen = false
-            // this.ref['notification'].openNotification()
         },
 
         openModal() {
