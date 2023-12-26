@@ -49,6 +49,7 @@
 <script>
 import { Modal, Button } from 'ant-design-vue';
 import { CloseOutlined } from '@ant-design/icons-vue';
+import { notification } from 'ant-design-vue';
 
 export default {
     name: 'addTaskComponent',
@@ -70,6 +71,10 @@ export default {
     methods: {
         handleOk() {
             this.isModalOpen = false
+            notification['info']({
+                message: 'GG',
+                description: 'Sohib gg'
+            });
             // alert('ok')
         },
 
@@ -161,15 +166,22 @@ export default {
 
 .modalSelect .ant-select-selection-item,
 .modalSelect .ant-select-selection-item-remove,
-.modalSelect .ant-select-selection-overflow {
-    color: #fff;
+.modalSelect .ant-select-selection-overflow,
+.ant-notification-notice-message {
+    color: #fff !important;
 }
 
 .modalSelect .ant-select-selection-item-remove {
     display: flex;
 }
 
-.ant-modal-close-icon svg {
+.ant-modal-close-icon svg,
+.ant-notification-close-icon svg {
+    color: #fff;
+}
+
+.ant-notification-notice {
+    background-color: #484851;
     color: #fff;
 }
 </style>

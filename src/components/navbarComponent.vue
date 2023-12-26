@@ -14,7 +14,6 @@
 
 <script>
 import addTaskComponent from '@/components/addTaskComponent.vue'
-import { notification } from 'ant-design-vue';
 
 export default {
     name: 'navbarComponent',
@@ -28,18 +27,6 @@ export default {
     },
 
     methods: {
-        handleOk() {
-            this.isModalOpen = false
-            return notification.open({
-                message: "GG",
-                description: "GGWP notify  description"
-            })
-        },
-
-        handleCancel() {
-            this.isModalOpen = false
-        },
-
         openModal() {
             this.$refs["addTaskModal"].open()
         }
