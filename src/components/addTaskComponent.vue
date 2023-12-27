@@ -1,21 +1,21 @@
 <template>
     <Modal 
         class="taskModal" 
-        :title="isEdit" 
+        :title="modalTitle" 
         :open="isModalOpen" 
         :onOk="handleOk" 
-        okText="Create task"
+        :okText="modalTitle"
         :onCancel="handleCancel"
         :okButtonProps="{class: 'addTaskModal'}"
         :cancelButtonProps="{style: {display: 'none'}}"
     >
         <div class="flex flex-col">
             <label class="text-white tracking-wider">Title</label>
-            <a-input class="modalInput placeholder-gray-500" :count="{show: true, max: 10}" placeholder="e.g. Take coffee break" />
+            <a-input class="modalInput placeholder-gray-500" :count="{show: true, max: 10}" placeholder="e.g. Take coffee break" :value="task && task.title"/>
         </div>
         <div class="mt-3 flex flex-col">
             <label class="text-white tracking-wider">Description</label>
-            <textarea rows="4" class="modalTextarea">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+            <textarea rows="4" class="modalTextarea" placeholder="e.g. We need to blah blah blah">{{ task && task.description }}</textarea>
         </div>
 
         <div class="mt-4 flex flex-col">
@@ -54,11 +54,13 @@ import { notification } from 'ant-design-vue';
 export default {
     name: 'addTaskComponent',
     components: { Modal, CloseOutlined, Button },
+    props: {
+        task: Object
+    },
 
     data() {
         return {
             isModalOpen: false,
-            isEditingTask: false,
             value: null,
             options: [ 
                 { value: 'jack', label: 'Jack' },
@@ -90,7 +92,11 @@ export default {
 
     computed: {
         isEdit() {
-            return this.isEditingTask ? 'Edit task' : 'Add new task'
+            return this.task && Object.keys(this.task).length > 0
+        },
+
+        modalTitle() {
+            return this.isEdit ? 'Edit task' : 'Add task'
         }
     }
 }

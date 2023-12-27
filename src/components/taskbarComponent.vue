@@ -19,18 +19,29 @@
                 <span><span>+</span> New Column</span>
             </div>
         </div>
+        
+        <addTaskComponent ref="addTaskModal" :task="singleTask"/>
     </div>
 </template>
 
 <script>
 import data from '../data.json'
+import addTaskComponent from './addTaskComponent.vue'
 
 export default {
     name: "taskbarComponent",
+    components: {addTaskComponent},
+    data() {
+        return {
+            singleTask: null
+        }
+    },
     
     methods: {
         openTask(data) {
             console.log(data)
+            this.singleTask = data
+            this.$refs["addTaskModal"].open()
         }
     },
 
